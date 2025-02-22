@@ -1,0 +1,36 @@
+{
+  "name": "template-api",
+  "version": "1.0.0",
+  "description": "Template NodeJs com typescript e Sequelize",
+  "main": "src/index.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run clean && tsc",
+    "start": "npm run build && tsx src/index.ts",
+    "start:dev": "cross-env ENV_FILE_PATH=.env.development tsx --watch src/index.ts",
+    "start:hml": "cross-env ENV_FILE_PATH=.env.staging tsx src/index.ts",
+    "start:prd": "cross-env ENV_FILE_PATH=.env.production tsx src/index.ts"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0",
+    "reflect-metadata": "^0.2.2",
+    "sequelize": "^6.37.5",
+    "typescript": "^5.7.3",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.4",
+    "cross-env": "^7.0.3",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.19.3"
+  },
+  "author": "Guilherme Martins",
+  "license": "MIT"
+}

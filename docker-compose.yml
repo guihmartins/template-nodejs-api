@@ -1,0 +1,30 @@
+services:
+  api:
+    image: template-api
+    build: .
+    container_name: template-api
+    restart: always
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.docker
+    networks:
+      - template-network
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    container_name: template-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: template
+    ports:
+      - "3306:3306"
+    networks:
+      - template-network
+
+networks:
+  template-network:
+    external: true

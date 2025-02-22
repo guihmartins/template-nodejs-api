@@ -1,0 +1,18 @@
+FROM oven/bun:1-alpine
+
+WORKDIR /app
+
+COPY package.json /app/
+
+# Instalar dependências incluindo tsx
+RUN bun install && \
+    bun install -g tsx 
+
+COPY . .
+
+ENV NODE_ENV production
+
+EXPOSE 8000
+
+# Comando para iniciar a aplicação usando tsx
+CMD [ "tsx", "./src/index.ts" ]
